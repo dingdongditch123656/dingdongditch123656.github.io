@@ -1,10 +1,166 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Happy 1 Year ❤️</title>
+<meta charset="UTF-8">
+<title>1 Year With You ❤️</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background: #ffe6e6;
+  color: #333;
+  text-align: center;
+}
+
+section {
+  padding: 60px 20px;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+.fade {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 1s;
+}
+
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Button */
+button {
+  padding: 12px 24px;
+  border: none;
+  background: #ff4d6d;
+  color: white;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #e63956;
+}
+
+/* Timeline cards */
+.card {
+  background: white;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 400px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Gallery */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+}
+
+.gallery img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* Hidden message */
+#surprise {
+  display: none;
+  margin-top: 20px;
+  font-size: 18px;
+}
+</style>
 </head>
+
 <body>
-  <h1>Hey ❤️</h1>
-  <p>I made this for you.</p>
+
+<!-- 1. Opening -->
+<section>
+  <h1 class="fade">Hey ❤️</h1>
+  <p class="fade">I made something for you</p>
+  <button onclick="scrollToSection('timeline')">Start</button>
+</section>
+
+<!-- 2. Timeline -->
+<section id="timeline">
+  <h1 class="fade">Our Story</h1>
+
+  <div class="card fade">
+    <h3>The day we met</h3>
+    <p>Everything started here.</p>
+  </div>
+
+  <div class="card fade">
+    <h3>When I realized I liked you</h3>
+    <p>This moment changed everything.</p>
+  </div>
+
+  <div class="card fade">
+    <h3>My favorite memory</h3>
+    <p>I wish I could relive this forever.</p>
+  </div>
+</section>
+
+<!-- 3. Meaning -->
+<section>
+  <h1 class="fade">What You Mean To Me</h1>
+  <p class="fade">You made normal days feel special.</p>
+  <p class="fade">You changed how I see everything.</p>
+  <p class="fade">And somehow, you became my favorite person.</p>
+</section>
+
+<!-- 4. Gallery -->
+<section>
+  <h1 class="fade">Us ❤️</h1>
+  <div class="gallery fade">
+    <img src="https://via.placeholder.com/300">
+    <img src="https://via.placeholder.com/300">
+    <img src="https://via.placeholder.com/300">
+  </div>
+</section>
+
+<!-- 5. Surprise -->
+<section>
+  <h1 class="fade">Don’t click this 😳</h1>
+  <button onclick="showSurprise()">Click Anyway</button>
+  <p id="surprise">You are the best thing that ever happened to me ❤️</p>
+</section>
+
+<!-- 6. Ending -->
+<section>
+  <h1 class="fade">1 Year Down...</h1>
+  <h1 class="fade">Forever To Go ❤️</h1>
+</section>
+
+<script>
+// Fade in on scroll
+const faders = document.querySelectorAll('.fade');
+
+window.addEventListener('scroll', () => {
+  faders.forEach(el => {
+    const top = el.getBoundingClientRect().top;
+    if (top < window.innerHeight - 50) {
+      el.classList.add('show');
+    }
+  });
+});
+
+// Scroll function
+function scrollToSection(id) {
+  document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+}
+
+// Surprise
+function showSurprise() {
+  document.getElementById("surprise").style.display = "block";
+}
+</script>
+
 </body>
 </html>
