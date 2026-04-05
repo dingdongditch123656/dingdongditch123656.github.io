@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>1 Year With You ❤️</title>
+<title>Im watching you little lady</title>
 
 <style>
 body {
@@ -75,16 +75,34 @@ button:hover {
   margin-top: 20px;
   font-size: 18px;
 }
+
+.heart {
+  position: fixed;
+  bottom: -10px;
+  font-size: 20px;
+  animation: floatUp 5s linear forwards;
+}
+
+@keyframes floatUp {
+  to {
+    transform: translateY(-100vh);
+    opacity: 0;
+  }
+}
+  
 </style>
 </head>
 
 <body>
-
+<audio id="bgMusic" loop>
+  <source src="your-song.mp3" type="audio/mpeg">
+</audio>
+  
 <!-- 1. Opening -->
 <section>
   <h1 class="fade">Hey ❤️</h1>
   <p class="fade">I made something for you</p>
-  <button onclick="scrollToSection('timeline')">Start</button>
+  <button onclick="startExperience()">Start</button>
 </section>
 
 <!-- 2. Timeline -->
@@ -131,7 +149,18 @@ button:hover {
   <button onclick="showSurprise()">Click Anyway</button>
   <p id="surprise">You are the best thing that ever happened to me ❤️</p>
 </section>
+  
+<section>
+  <h1 class="fade">Private Section 🔐</h1>
+  <input type="password" id="password" placeholder="Enter password">
+  <button onclick="checkPassword()">Unlock</button>
 
+  <div id="secretContent" style="display:none; margin-top:20px;">
+    <p>This is just for you ❤️</p>
+    <p>I don’t say this enough, but you mean everything to me.</p>
+  </div>
+</section>
+  
 <!-- 6. Ending -->
 <section>
   <h1 class="fade">1 Year Down...</h1>
@@ -139,6 +168,35 @@ button:hover {
 </section>
 
 <script>
+function startExperience() {
+  const music = document.getElementById("bgMusic");
+  music.play();
+  scrollToSection('timeline');
+}
+  
+function checkPassword() {
+  const pass = document.getElementById("password").value;
+
+  if (pass === "yourpassword") {
+    document.getElementById("secretContent").style.display = "block";
+  } else {
+    alert("Wrong password 👀");
+  }
+}
+
+// floating hearts
+setInterval(() => {
+  const heart = document.createElement("div");
+  heart.classList.add("heart");
+  heart.innerText = "❤️";
+
+  heart.style.left = Math.random() * 100 + "vw";
+
+  document.body.appendChild(heart);
+
+  setTimeout(() => heart.remove(), 5000);
+}, 500);
+  
 // Fade in on scroll
 const faders = document.querySelectorAll('.fade');
 
