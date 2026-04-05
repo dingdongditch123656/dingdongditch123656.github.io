@@ -5,6 +5,26 @@
 <title>Im watching you little lady</title>
 
 <style>
+.collage {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 150px 150px;
+  gap: 10px;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.collage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.collage img:hover {
+  transform: scale(1.05);
+}
   
 #intro {
   position: fixed;
@@ -160,17 +180,17 @@ button:hover {
 <section id="timeline">
   <h1 class="fade">heres a little walk thru memory lane little cutie</h1>
 
-  <div class="card">
+  <div class="card fade">
     <img src="1.jpeg" style="width:100%; border-radius:10px;">
     <p>damn this woman looks like perfect wifey material hating muslims like that and all</p>
   </div>
 
-  <div class="card">
+  <div class="card fade">
     <img src="2.jpeg" style="width:100%; border-radius:10px;">
     <p>YOU DID NOT JUST WHAT THE FUCKKK</p>
   </div>
 
-  <div class="card">
+  <div class="card fade">
     <img src="3.jpeg" style="width:100%; border-radius:10px;">
     <p>hey this is where we are now.</p>
   </div>
@@ -183,7 +203,18 @@ button:hover {
   <p class="fade">CAN YOU LIKE NEVER CHANGE PLS</p>
   <p class="fade">i want you to be mine forever and ever 🤭</p>
 </section>
+  
+<section>
+  <h1>so UHM A LITTLE SPOTLIGHT on my vedu (happy belated birthday sigh)</h1>
 
+  <div class="collage">
+    <img src="7.jpeg">
+    <img src="11.jpeg">
+    <img src="12.jpeg">
+    <img src="4.jpeg">
+  </div>
+</section>
+  
 <!-- 4. Gallery -->
 <section>
   <h1 class="fade">HEY THATS US</h1>
@@ -195,37 +226,30 @@ button:hover {
   </div>
 </section>
 
-<!-- 5. Surprise -->
-<section>
-  <h1 class="fade">Don’t click this 😳</h1>
-  <button onclick="showSurprise()">Click Anyway</button>
-  <p id="surprise">You are the best thing that ever happened to me ❤️</p>
-</section>
-  
 <section>
   <h1 class="fade">Private Section 🔐</h1>
   <input type="password" id="password" placeholder="Enter password">
   <button onclick="checkPassword()">Unlock</button>
 
   <div id="secretContent" style="display:none; margin-top:20px;">
-    <p>This is just for you ❤️</p>
-    <p>I don’t say this enough, but you mean everything to me.</p>
+    <p>vedangana grover.</p>
+    <p>Thankyou for being literally everything i could ever ask for in my partner. Youve been so kind and so caring to me, and that is actually something i cannot take for granted i love you sm. its 6th april while youre reading this and this day belongs to us and us only okay? i love you so much thankyou so much for being mine<3. will you be mine forever and ever vedu?</p>
   </div>
 </section>
   
 <!-- 6. Ending -->
 <section>
-  <h1 class="fade">1 Year Down...</h1>
-  <h1 class="fade">Forever To Go ❤️</h1>
+  <h1 class="fade">a year has passed</h1>
+  <h1 class="fade">FOREVER TO GOOOOO EEEEE ❤️</h1>
 </section>
 
 <script>
 const lines = [
-  "For You ❤️",
-  "It’s been 1 year...",
-  "And somehow...",
-  "You became my favorite person.",
-  "This is our story."
+  "this is for you weirdo ❤️",
+  "it’s been a year...",
+  "and exactly a year ago",
+  "YOU became my fav.",
+  "heres a recap:"
 ];
 
 let lineIndex = 0;
@@ -270,7 +294,7 @@ function startExperience() {
 function checkPassword() {
   const pass = document.getElementById("password").value;
 
-  if (pass === "yourpassword") {
+  if (pass === "6 april") {
     document.getElementById("secretContent").style.display = "block";
   } else {
     alert("Wrong password 👀");
